@@ -1,0 +1,90 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 46px;
+}
+
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 98vw;
+  min-height: 98vh;
+  background-color: rgb(47, 45, 45);
+}
+
+#time {
+  display: flex;
+  gap: 40px;
+  color: ghostwhite;
+}
+
+#time div {
+  --ss: 45px;
+  position: absolute;
+  text-align: center;
+  font-weight: 100;
+}
+
+#time .circle {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#time .circle svg {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  transform: rotate(270deg);
+}
+#time .circle svg circle {
+  width: 100%;
+  height: 100%;
+  fill: transparent;
+  /* stroke: black; */
+  stroke-width: 4;
+}
+
+#time .circle svg circle:nth-child(2) {
+  stroke: var(--clr);
+  stroke-dasharray: 440;
+}
+
+#time .ap {
+  position: relative;
+  font-size: 1em;
+  /* transform: translateY(-20px);   lift am/pm a bit up i believe it make an other stacking context  */
+  top: -20px;
+  /* margin-top:-20px; */
+}
+.dots {
+  /* because of text-align is centered ! because it is depend on content !  */
+  /* position: absolute;  it is already in the  position of absolute 
+  instructor obviously  don't know how to use css selectors ! */
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+
+  /* instructor used flex and justify-self + align items 
+  to make dots appears on the circle though it was functional
+   align items was unnecessary even in that concept ! */
+  /* display: flex;
+  justify-content: center; */
+  /* align-items: flex-start; */
+}
+
+.dots::after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: var(--clr);
+  border-radius: 50%;
+  box-shadow: 0 0 20px var(--clr), 0 0 60px var(--clr);
+}
